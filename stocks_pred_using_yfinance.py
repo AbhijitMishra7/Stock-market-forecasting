@@ -205,8 +205,10 @@ rolling_predictions_lstm = pd.Series(rolling_predictions_lstm, index=high_data.i
 print('RMSE ',np.sqrt(mean_squared_error(high_data[-test_size:].values, rolling_predictions_lstm)))
 
 plt.figure(figsize=(10,4))
-plt.plot(high_data[-test_size:])
-plt.plot(rolling_predictions_lstm)
+plt.plot(rolling_predictions_lstm, label="Predictions")
+plt.plot(high_data[-test_size:], label="Actual Values",color='red')
+plt.legend(loc="upper left")
+plt.xticks(rotation=90)
 plt.show()
 
 
